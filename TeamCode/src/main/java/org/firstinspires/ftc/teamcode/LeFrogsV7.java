@@ -21,6 +21,7 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Advanced: LeFrogsv7" , group="Linear Opmode")
 //@Disabled
+
 public class LeFrogsV7 extends LinearOpMode {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -135,8 +136,8 @@ public class LeFrogsV7 extends LinearOpMode {
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
 //            telemetry.update();
-            telemetry.addData("Status", "Run Time: " + runtime.toString());
-            telemetry.addData("Motors", "speed (%.2f)", armDrivePower);
+//            telemetry.addData("Status", "Run Time: " + runtime.toString());
+//            telemetry.addData("Motors", "speed (%.2f)", armDrivePower);
             telemetry.update();
 
 
