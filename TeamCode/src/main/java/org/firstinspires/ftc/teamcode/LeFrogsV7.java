@@ -135,6 +135,7 @@ public class LeFrogsV7 extends LinearOpMode {
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
+            telemetry.addData("test", "test telemetry");
 //            telemetry.update();
 //            telemetry.addData("Status", "Run Time: " + runtime.toString());
 //            telemetry.addData("Motors", "speed (%.2f)", armDrivePower);
