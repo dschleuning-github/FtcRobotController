@@ -19,10 +19,10 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Advanced: LeFrogsv7" , group="Linear Opmode")
+@TeleOp(name="Niko and Raiden are advanced: LeFrogsv9" , group="Linear Opmode")
 //@Disabled
 
-public class LeFrogsV7 extends LinearOpMode {
+public class LeFrogsV9 extends LinearOpMode {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDrive = null;
@@ -101,6 +101,10 @@ public class LeFrogsV7 extends LinearOpMode {
             //TBD...arm
             //TBD...intake
 
+            boolean jorge = gamepad2.y;
+
+
+
             if (Math.abs(drive) > Math.abs(turn)) {
                 leftPower = Range.clip(-drive, NVelocity, .6);
                 rightPower = Range.clip(-drive, NVelocity, .6);
@@ -135,7 +139,6 @@ public class LeFrogsV7 extends LinearOpMode {
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
-            telemetry.addData("test", "test telemetry");
 //            telemetry.update();
 //            telemetry.addData("Status", "Run Time: " + runtime.toString());
 //            telemetry.addData("Motors", "speed (%.2f)", armDrivePower);
