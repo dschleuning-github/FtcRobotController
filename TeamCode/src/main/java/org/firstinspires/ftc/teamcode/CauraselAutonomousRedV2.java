@@ -78,16 +78,16 @@ public class CauraselAutonomousRedV2 extends LinearOpMode {
 
             while (runtime.time() < end_time){
                 if ((runtime.time() < 1.0) && (runtime.time() > 0)) {
-                    MoveSide(0.5);
+                    MoveSide(-0.5);
                     eyeBallMotor.setPower(0);
                 } else if ((runtime.time() > 1) && (runtime.time() < 3)) {
                     MoveVertical(0.5);
                 } else if ((runtime.time() > 3) && (runtime.time() < 8)) {
-                    eyeBallMotor.setPower(.5);
+                    eyeBallMotor.setPower(-.5);
                     StopWheels();
                 } else if ((runtime.time() > 8) && (runtime.time() < 10)) {
                     eyeBallMotor.setPower(0);
-                    MoveSide(0.5);
+                    MoveSide(-0.5);
                 } else if ((runtime.time() > 10) && (runtime.time() < 24)) {
                     eyeBallMotor.setPower(0);
                     StopWheels();
