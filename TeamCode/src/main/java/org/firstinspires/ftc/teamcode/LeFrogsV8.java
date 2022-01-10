@@ -33,7 +33,7 @@ public class LeFrogsV8 extends LinearOpMode {
     private DcMotor intakeMotor = null;
     private DcMotor armDrive = null;
 
-    Servo   servo;
+    Servo   servo;    //add servo
 
     int Slomode = 0;
     double velocity = .9;

@@ -44,7 +44,7 @@ public class CauraselAutonomousRedV3 extends LinearOpMode {
     private DcMotor rightDrive = null;
     private DcMotor leftDriveBack = null;
     private DcMotor rightDriveBack = null;
-    private DcMotor eyeBallMotor = null;
+    private DcMotor eyeBallMotor = null; //motor
     int Slomode = 0;
 
     @Override
