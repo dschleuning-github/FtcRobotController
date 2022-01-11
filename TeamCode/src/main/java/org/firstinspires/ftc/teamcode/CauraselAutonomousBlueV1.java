@@ -35,15 +35,16 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@Autonomous(name="Basic: CauraselAutonomouseRedV3" , group="Linear Opmode")
+@Autonomous(name="Basic: CauraselAutonomouseBlueV1" , group="Linear Opmode")
 //q1w@Disabled
-public class CauraselAutonomousRedV3 extends LinearOpMode {
+public class CauraselAutonomousBlueV1 extends LinearOpMode {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
     private DcMotor leftDriveBack = null;
     private DcMotor rightDriveBack = null;
+    private DcMotor intakeMotor = null;
     private DcMotor eyeBallMotor = null; //motor
     int Slomode = 0;
 
@@ -56,6 +57,7 @@ public class CauraselAutonomousRedV3 extends LinearOpMode {
         leftDriveBack  = hardwareMap.get(DcMotor.class, "motor 3 :]");
         rightDrive = hardwareMap.get(DcMotor.class, "motor1");
         rightDriveBack = hardwareMap.get(DcMotor.class, "motor 2 :)");
+        intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
         eyeBallMotor = hardwareMap.get(DcMotor.class, "eyeballmotor");
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -63,6 +65,7 @@ public class CauraselAutonomousRedV3 extends LinearOpMode {
         rightDriveBack.setDirection(DcMotor.Direction.FORWARD);
         eyeBallMotor.setDirection(DcMotor.Direction.FORWARD);
         leftDriveBack.setDirection(DcMotor.Direction.REVERSE);
+        intakeMotor.setDirection(DcMotor.Direction.FORWARD);
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -77,29 +80,31 @@ public class CauraselAutonomousRedV3 extends LinearOpMode {
             double step1 = 0.1;
             double step2 = 0.3;
             double step3 = 5.0;
-            double step4 = 1.2; //add a comment
+            double step4 = 0.7; //add a comment
             double step5 = 1.0;
             double step6 = 0.2;
+            double step7 = 3.0;
 
             while (runtime.time() < end_time){
                 if ((runtime.time() < step1) && (runtime.time() > 0)) {
-                    MoveSide(-0.5);
+                    MoveVertical(-0.5);
                     eyeBallMotor.setPower(0);
                 } else if ((runtime.time() > step1) && (runtime.time() < (step1 + step2))) {
-                    MoveVertical(0.5);
+                    MoveSide(0.5);
                 } else if ((runtime.time() > (step1 + step2)) && (runtime.time() < (step1 + (step2 + step3)))) {
                     eyeBallMotor.setPower(.5);
                     StopWheels();
                 } else if ((runtime.time() > (step1 + step2 + step3)) && (runtime.time() < (step1 + step2 + step3 + step4))) {
                     eyeBallMotor.setPower(0);
-                    MoveSide(-0.5);
+                    MoveVertical(-0.5);
                 } else if ((runtime.time() > (step1 + step2 + step3 + step4)) && (runtime.time() < (step1 + step2 + step3 + step4 + step5))) {
                     eyeBallMotor.setPower(0);
                     StopWheels();
                 } else if ((runtime.time() > (step1 + step2 + step3 + step4 + step5)) && (runtime.time() < (step1 + step2 + step3 + step4 + step5 + step6))) {
-                    MoveVertical(0.5);
-                }
-                else{
+                    MoveSide(0.5);
+                } else if (runtime.time() > (step1 + step2 + step3 + step4 + step5 + step6) && (runtime.time() < (step1 + step2 + step3 + step4 + step5 + step6 + step7))) {
+                    intakeMotor.setPower(.5);
+                } else{
                     eyeBallMotor.setPower(0);
                     StopWheels();
                 }
