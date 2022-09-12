@@ -92,7 +92,7 @@ public class CauraselAutonomousBlueV1 extends LinearOpMode {
                 } else if ((runtime.time() > step1) && (runtime.time() < (step1 + step2))) {
                     MoveSide(0.5);
                 } else if ((runtime.time() > (step1 + step2)) && (runtime.time() < (step1 + (step2 + step3)))) {
-                    eyeBallMotor.setPower(.5);
+                    eyeBallMotor.setPower(-.5);
                     StopWheels();
                 } else if ((runtime.time() > (step1 + step2 + step3)) && (runtime.time() < (step1 + step2 + step3 + step4))) {
                     eyeBallMotor.setPower(0);
